@@ -1,0 +1,20 @@
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.carousel{
+  width: 100%;
+  height: 56vh; /* Change the height to 50% of viewport height */
+  position: relative;
+  border-radius: 10px;
+}
+
+.carousel img {
+  border-radius: 10px;
+  object-fit: cover; /* Use object-fit to cover the image within the carousel */
+  width: 100%;
+  height: 60vh; /* Set the height of the image to 100% to fill the carousel */
+}
+
