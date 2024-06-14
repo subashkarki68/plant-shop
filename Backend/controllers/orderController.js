@@ -37,7 +37,7 @@ router.get("/get_single", authGuard, async (req, res) => {
   }
 });
 
-router.get("/get_all", async (req, res) => {
+router.get("/get_all", authGuard, async (req, res) => {
   try {
     const orders = await Order.find({});
     res.json(orders);
