@@ -5,11 +5,18 @@ const crypto = require("crypto");
 exports.createOrder = async (req, res) => {
   try {
     console.log("order_controller req.body", req.body);
-    const order = await orderService.save(req.body);
-    console.log("orser:", order);
-    console.log(
-      `TEST: total_amount=${order.totalAmount},transaction_uuid=${order._id},product_code=EPAYTEST`
-    );
+    console.log("req User", req.user);
+    const newOrder = {
+      cart: req.body.cart,
+      totalAmount: req.body.totalAmount,
+      shippingAddress: req.body.shippingAddress,
+      product_code: req.body.product_code,
+      user: req.user.id,
+    };
+    console.log("nre ORder", newOrder);
+    const order = await orderService.save(newOrder);
+    console.log("order:", order);
+
     const signature = this.createSignature(
       `total_amount=${order.totalAmount},transaction_uuid=${order._id},product_code=EPAYTEST`
     );

@@ -20,7 +20,7 @@ const Order = () => {
       <h3>My Orders</h3>
 
       {orders.map((order) => (
-        <div className='card'>
+        <div className='card' key={order._id}>
           <div className='card-header d-flex justify-content-between'>
             <h6>ORDER - {order.orderNumber}</h6>
             <h6>{order.status}</h6>

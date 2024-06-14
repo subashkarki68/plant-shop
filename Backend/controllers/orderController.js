@@ -29,7 +29,9 @@ router.post("/create-old", authGuard, async (req, res) => {
 
 router.get("/get_single", authGuard, async (req, res) => {
   try {
+    console.log(req.user);
     const orders = await Order.find({ user: req.user.id });
+    console.log(orders);
     res.json(orders);
   } catch (error) {
     console.log(error);
